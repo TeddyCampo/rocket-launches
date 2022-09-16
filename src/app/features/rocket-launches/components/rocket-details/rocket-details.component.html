@@ -1,1 +1,21 @@
-<p>rocket-details works!</p>
+<div class="details-container">
+    <h3 class="name">{{launchDetails.name}} details:</h3>
+    <ul>
+        <li>Agency: {{launchDetails.launch_service_provider.name}}</li>
+        <li>Location: {{launchDetails.pad.location.name}}</li>
+        <li>Pad: {{launchDetails.pad.name}}</li>
+        <li>Spacecraft name: {{launchDetails.rocket.configuration?.name}}</li>
+        <li>Spacecraft description: {{launchDetails.rocket.configuration?.description}}</li>
+        <li>Spacecraft successful launches: {{launchDetails.rocket.configuration?.successful_launches}}</li>
+        <li>Mission: {{launchDetails.mission.name}}</li>
+        <li>Mission Description: {{launchDetails.mission.description}}</li>
+        <li>Orbital launch attempts: {{launchDetails.orbital_launch_attempt_count}}</li>
+        <li>Orbital launch attempts this year: {{launchDetails.orbital_launch_attempt_count_year}}</li>
+        <li>Start: {{launchDetails.window_start | date:'dd/MM/yyyy hh:mm:ss'}}</li>
+        <li>End: {{launchDetails.window_end | date:'dd/MM/yyyy hh:mm:ss'}}</li>
+        <li>Status: {{launchDetails.status.name}}</li>
+        <li>Status description: {{launchDetails.status.description}}</li>
+    </ul>
+    <br>
+    <a routerLink="/launches">Back to the list</a>
+</div>

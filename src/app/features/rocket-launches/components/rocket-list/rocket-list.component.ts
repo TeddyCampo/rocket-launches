@@ -7,16 +7,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class RocketListComponent implements OnInit {
 
-  @Input() nbOfLaunches: number;
   @Input() launches: any;
-  @Output() launchClicked = new EventEmitter<string>();
+  @Output() launchSelectedd = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onLaunchClick(id: number) {
-    console.log("id: ", id);
+  onLaunchClick(id: string) {
+    this.launchSelectedd.emit(id);
   }
 }

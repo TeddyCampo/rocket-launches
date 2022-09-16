@@ -1,4 +1,6 @@
+<h2 class="list-title">Last {{launchesLimit}} rocket launches:</h2>
+<br>
 <app-rocket-list
-[nbOfLaunches]="launchesLimit"
 [launches]="launches"
+(launchSelectedd)="selectLaunch($event)"
 ></app-rocket-list>

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subject, Subscription } from 'rxjs';
 import { RocketLaunchService } from '../../services/rocket-launch.service';
 
 @Component({
@@ -11,15 +12,15 @@ export class PageRocketLaunchesComponent implements OnInit, OnDestroy {
 
   private launchSubscription = new Subscription();
   launchesLimit = 50;
-  launches = [];
+  launches: any[];
 
   constructor(
-    private rocketLaunchService: RocketLaunchService
+    private rocketLaunchService: RocketLaunchService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.launchSubscription = this.rocketLaunchService.getNextRocketLaunches(this.launchesLimit).subscribe(launches => {
-      console.log("launches:", launches);
       this.launches = launches.results;
     })
   }
@@ -27,4 +28,7 @@ export class PageRocketLaunchesComponent implements OnInit, OnDestroy {
     this.launchSubscription.unsubscribe();
   }
 
+  selectLaunch(id: string) {
+    this.router.navigate(['launches', id]);
+  }
 }

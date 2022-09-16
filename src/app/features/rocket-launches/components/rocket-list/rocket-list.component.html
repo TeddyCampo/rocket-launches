@@ -1,0 +1,11 @@
+<div class="list-title">Last {{nbOfLaunches}} rocket launches:</div>
+<br>
+<div class="launch-list" *ngFor="let launch of launches">
+    <div class="launch-item">
+        <div>{{launch.name}}:</div>
+        <div>- Status: {{launch.status.name}}</div>
+        <div>- Start: {{launch.window_start | date:'dd/MM/yyyy hh:mm:ss'}}</div>
+        <div>- End: {{launch.window_end | date:'dd/MM/yyyy hh:mm:ss'}}</div>
+        <button (click)="onLaunchClick(launch.id)">Details</button>
+    </div>
+</div>

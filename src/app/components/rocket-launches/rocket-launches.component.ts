@@ -4,11 +4,11 @@ import { Subject, Subscription } from 'rxjs';
 import { RocketLaunchService } from '../../services/rocket-launch.service';
 
 @Component({
-  selector: 'app-page-rocket-launches',
-  templateUrl: './page-rocket-launches.component.html',
-  styleUrls: ['./page-rocket-launches.component.scss']
+  selector: 'app-rocket-launches',
+  templateUrl: './rocket-launches.component.html',
+  styleUrls: ['./rocket-launches.component.scss']
 })
-export class PageRocketLaunchesComponent implements OnInit, OnDestroy {
+export class RocketLaunchesComponent implements OnInit, OnDestroy {
 
   private launchSubscription = new Subscription();
   launchesLimit = 50;
